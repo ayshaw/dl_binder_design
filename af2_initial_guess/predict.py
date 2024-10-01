@@ -554,7 +554,7 @@ struct_manager = StructManager(args)
 af2_runner     = AF2_runner(args, struct_manager)
 
 for pdb in struct_manager.iterate():
-
+    print(f'Processing struct with tag: {pdb}')
     if args.debug: af2_runner.process_struct(pdb)
 
     else: # When not in debug mode the script will continue to run even when some poses fail
@@ -562,7 +562,7 @@ for pdb in struct_manager.iterate():
 
         try: af2_runner.process_struct(pdb)
 
-        except KeyboardInterrupt: sys.exit( "Script killed by Control+C, exiting" )
+        except KeyboardInterrupt: sys.exit( "Script killed by Control+C, exiting")
 
         except:
             seconds = int(timer() - t0)
